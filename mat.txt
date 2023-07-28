@@ -1,0 +1,58 @@
+% Prompt the user to input the number of rows and columns for t_dh and t_h
+n = input('Enter the number of rows and columns for t_dh and t_h: ');
+
+% Generate random values for t_dh and t_h
+t_dh = rand(n, n);
+t_h = rand(n, n);
+
+% Normalize the matrices so that the rows of t_dh and the columns of t_h all sum to 1
+t_dh = t_dh ./ sum(t_dh, 2);
+t_h = t_h ./ sum(t_h, 1);
+
+% Set the diagonal elements of t_h to 0
+t_h(1:n+1:end) = 0;
+
+% Generate random values for h and d within the range of 0 to 1
+h = rand(1, n);
+d = rand(1, n);
+%h = [a, a, a, a];
+%d = [b, b, b, b];
+
+% Calculate the matrix S using the formula S = h + d * t_dh
+S = h + d * t_dh;
+
+% Display the resulting matrix S
+disp(S)
+
+% Initialize tol
+tol = 0.0001;
+
+% Set a while loop with a condition 
+while true
+  
+    % Calculate the matrix S1 using the formula S1 = S * t_h
+    S1 = S * t_h;
+    
+    % Display the resulting matrix S1
+    disp(S1)
+    
+    % Calculate the difference C between S1 and S
+    C = S1 - S;  
+    
+    % Print the current value of norm(C)
+    fprintf('Current value : %f\n', norm(C));
+    
+    % If the norm of C is less than tol, break out of the loop
+    if norm(C) < tol
+        break;
+    end
+    
+    % Update S to be equal to S1
+    S = S1;
+    
+    % Calculate the new value of S1
+    S1 = S * t_h;
+end    
+
+% Display the final value of norm(C)
+fprintf('Final value : %f\n', norm(C));

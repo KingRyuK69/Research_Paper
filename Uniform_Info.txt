@@ -1,0 +1,9 @@
+This code generates two matrices t_dh and t_h with random values, normalizes them such that the rows of t_dh and columns of t_h sum up to 1, sets the diagonal elements of t_h to 0, initializes a tolerance value (tol) and the number of runs for a loop (num_runs), and opens a file (output.txt) to store the output.
+
+The loop iterates num_runs times and generates random values for h and d within the range of 0.1 to 0.9. The matrix S is calculated using the formula S = h + d * t_dh.
+
+A while loop is set with a condition that calculates the matrix S1 using the formula S1 = S * t_h and writes the values of S1 to the file. It then calculates the difference C between S1 and S, prints the current value of norm(C), and checks if the norm of C is less than tol. If the norm of C is less than tol, the loop breaks out. Otherwise, S is updated to be equal to S1.
+
+Finally, the loop prints the final value of norm(C) and the file is closed.
+
+In summary, this code performs a numerical computation that involves generating random matrices, normalization, and iterative computations until a certain tolerance is reached. The output is written to a file for further analysis.

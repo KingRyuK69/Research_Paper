@@ -1,0 +1,46 @@
+Algorithm: Web Scraping to Generate CSV file for Hospitals, Doctors, and Departments
+
+Input:
+
+URL of the Apollo Hospitals website
+
+Output:
+
+CSV file containing information about hospitals, doctors, and departments
+
+Import the required libraries: requests, BeautifulSoup, csv
+
+Get the URL of the Apollo Hospitals website
+
+Send an HTTP request to the website and get the response
+
+Parse the HTML content using BeautifulSoup
+
+Find the list of hospitals on the website
+
+For each hospital, extract the following information:
+
+a. Hospital Name
+b. Hospital Address
+c. Hospital Contact Information
+d. Hospital Services
+
+Find the list of doctors on the website
+
+For each doctor, extract the following information:
+
+a. Doctor Name
+b. Doctor Qualification
+c. Doctor Specialization
+d. Doctor Experience
+
+Find the list of departments on the website
+
+For each department, extract the following information:
+
+a. Department Name
+b. Department Description
+Save all the extracted information into a CSV file. Each row in the CSV file should contain the following columns:
+a. For Hospitals: Name, Address, Contact Information, Services
+b. For Doctors: Name, Qualification, Specialization, Experience
+c. For Departments: Name, Description
